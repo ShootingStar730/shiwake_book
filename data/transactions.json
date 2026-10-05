@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2,
+    "date": "2026-10-05",
+    "category": "交通費",
+    "amount": 1500,
+    "memo": null
+  },
+  {
+    "id": 3,
+    "date": "2026-10-05",
+    "category": "食費",
+    "amount": 10000,
+    "memo": null
+  },
+  {
+    "id": 4,
+    "date": "2026-10-05",
+    "category": "食費",
+    "amount": 20000,
+    "memo": null
+  },
+  {
+    "id": 5,
+    "date": "2026-10-05",
+    "category": "食費",
+    "amount": 999,
+    "memo": null
+  },
+  {
+    "id": 6,
+    "date": "2026-10-05",
+    "category": "食費",
+    "amount": 777,
+    "memo": null
+  },
+  {
+    "id": 7,
+    "date": "2026-10-05",
+    "category": "食費",
+    "amount": 1000,
+    "memo": null
+  }
+]

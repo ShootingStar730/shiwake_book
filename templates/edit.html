@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>仕分け編集</title>
+</head>
+
+<body>
+
+    <h1>仕分け編集</h1>
+
+    <form method="post" action="/transactions/{{ transaction['id'] }}/edit">
+
+        <div>
+            <label>日付</label>
+            <input
+                type="date"
+                name="date"
+                value="{{ transaction['date'] }}"
+                required
+            >
+        </div>
+
+        <div>
+            <label>項目</label>
+
+            <select name="category" required>
+                {% for category in categories %}
+                    <option
+                        value="{{ category }}"
+                        {% if category == transaction["category"] %}selected{% endif %}
+                    >
+                        {{ category }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label>金額</label>
+            <input
+                type="number"
+                name="amount"
+                value="{{ transaction['amount'] }}"
+                required
+            >
+        </div>
+
+        <div>
+            <label>メモ</label>
+            <input
+                type="text"
+                name="memo"
+                value="{{ transaction['memo'] or '' }}"
+            >
+        </div>
+
+        <button type="submit">保存</button>
+
+    </form>
+
+    <a href="/">戻る</a>
+
+</body>
+</html>

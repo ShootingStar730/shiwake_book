@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>仕分け帳</title>
+</head>
+
+<body>
+    <h1>仕分け帳</h1>
+
+    <h2>仕分け登録</h2>
+
+    <form method="post" action="/transactions">
+
+        <div>
+            <label>日付</label>
+            <input type="date" name="date" required>
+        </div>
+
+        <div>
+            <label>項目</label>
+            <select name="category" required>
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        
+        <div>
+            <label>金額</label>
+            <input type="number" name="amount" required>
+        </div>
+        
+        <div>
+            <label>メモ</label>
+            <input type="text" name="memo">
+        </div>
+        
+        <button type="submit">登録</button>
+        
+    </form>
+    
+    <h2>カテゴリ追加</h2>
+
+    <form method="post" action="/categories">
+        <input type="text" name="category" required>
+        <button type="submit">追加</button>
+    </form>
+
+    <h2>仕分け一覧</h2>
+
+    <ul>
+        {% for transaction in transactions %}
+            <li>
+                {{ transaction["date"] }}
+                /
+                {{ transaction["category"] }}
+                /
+                {{ transaction["amount"] }}円
+                /
+                {{ transaction["memo"] }}
+
+                <a href="/transactions/{{ transaction['id'] }}/edit">
+                    編集
+                </a>
+
+                <form method="post" action="/transactions/{{ transaction['id'] }}">
+                    <button type="submit">削除</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
